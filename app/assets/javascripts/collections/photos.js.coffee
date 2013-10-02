@@ -7,5 +7,6 @@ app.Collections.Photos = Backbone.Collection.extend
 
 	fetchPhotos: () ->
 		FB.api @id + '/photos?limit=200', (response) =>
-			for info in response.data
-				@add new app.Models.Photo info
+			if response.data
+				for info in response.data
+					@add new app.Models.Photo info

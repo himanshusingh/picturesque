@@ -23,5 +23,4 @@ app.Views.Albums = Backbone.View.extend
 
 	renderAlbum: (album) ->
 		albumView = new app.Views.Album(model: album)
-		console.log(@el)
 		@$el.append albumView.render().el

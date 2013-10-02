@@ -8,7 +8,6 @@ app.Collections.Albums = Backbone.Collection.extend
 			    	@addAlbum info
 
 	addAlbum: (info) ->
-		console.log(info)
 		FB.api '/'+info.id+'/picture', (response) =>
 			info.cover = response.data.url
 			info.photos = new app.Collections.Photos([], id: info.id)

@@ -18,8 +18,10 @@ app.Routers.App = Backbone.Router.extend
 			view.render()
 
 	showAlbum: (id) ->
-		console.log('what!')
-		view = new app.Views.Photos
-							collection: app.albums.get(id).get('photos')
-							album: app.albums.get(id)
-		view.render()
+		if !app.connected
+			@navigate('', true)
+		else
+			view = new app.Views.Photos
+								collection: app.albums.get(id).get('photos')
+								album: app.albums.get(id)
+			view.render()

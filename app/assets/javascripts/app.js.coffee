@@ -44,3 +44,7 @@ $(document).ready ->
     $('.navbar-text strong').empty()
     $('.navbar-text').addClass('hidden')
     app.router.navigate '', true
+
+  $('.upload-btn').click (e) ->
+    e.preventDefault()
+    

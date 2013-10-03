@@ -12,4 +12,5 @@ app.Views.Album = Backbone.View.extend
 		this
 
 	showAlbumPhotos: (e) ->
-		app.router.navigate('album/' + @model.id, true)
+		photosView = new app.Views.Photos(collection: @model.get('photos'), album: @model)
+		photosView.render()

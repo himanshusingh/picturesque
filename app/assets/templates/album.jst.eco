@@ -1,8 +1,6 @@
-<div class="col-sm-6 col-md-3">
-  <div class="thumbnail">
+<li class="thumbnail col-sm-6 col-md-3">
     <img src='<%=@album.get("cover")%>' alt='<%=@album.get("name")%>'>
-    <div class="caption">
+    <!--<div class="caption">
       <p><%=@album.get("name")%></p>
-    </div>
-  </div>
-</div>
+    </div>-->
+</li>

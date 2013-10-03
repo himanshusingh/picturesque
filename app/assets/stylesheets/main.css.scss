@@ -40,3 +40,42 @@ body{
 	min-height: 900px;
 	padding-top: 50px;
 }
+.container#albums{
+	margin-top: 70px;
+}
+#albums h2{
+	margin-top: 70px;
+	margin-bottom: 35px;
+}
+#albumsView {
+	height: 200px;
+	overflow: auto;
+	white-space: nowrap;
+	padding: 21px;
+	border: 1px solid rgb(235, 235, 235);
+}
+#albumsView .thumbnail{
+	padding: 0px;
+	border: none;
+	border-radius: 0px;
+	max-height: 185px;
+	max-width: 180px;
+}
+#albumsView li {
+display: inline-block;
+float: none;
+margin-right: 50px;
+}
+#albumsView .thumbnail {
+padding: 0px;
+border-radius: 0px;
+height: 135px;
+max-width: 180px;
+overflow: hidden;
+border: 1px solid rgb(224, 212, 212);
+box-shadow: 5px 5px 31px;
+cursor: pointer;
+}
+#albumsView .thumbnail img {
+margin: 0px;
+}

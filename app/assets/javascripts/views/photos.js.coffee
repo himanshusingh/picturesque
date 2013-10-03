@@ -12,7 +12,7 @@ app.Views.Photos = Backbone.View.extend
 	render: ->
 		$('#app').addClass('hidden')
 		$('#gallery').removeClass('hidden')
-		$('#albums').addClass('hidden')
+		#$('#albums').addClass('hidden')
 		$('#gallery .breadcrumb .active').html(@options.album.get('name'))
 		@$el.empty()
 		@$el.html(@template(collection: @collection))

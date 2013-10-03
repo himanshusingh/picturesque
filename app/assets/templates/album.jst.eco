@@ -2,7 +2,7 @@
   <div class="thumbnail">
     <img src='<%=@album.get("cover")%>' alt='<%=@album.get("name")%>'>
     <div class="caption">
-      <h3><%=@album.get("name")%></h3>
+      <p><%=@album.get("name")%></p>
     </div>
   </div>
 </div>

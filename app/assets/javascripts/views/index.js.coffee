@@ -1,13 +1,20 @@
 app.Views.Index = Backbone.View.extend
+	el: '#appView'
 	template: JST['index']
 
 	initialize: ->
 
 	events:
 		'click #fblogin': 'login'
+		'click #enter'	: 'login'
 
 	render: ->
-		@setElement(@template($(".index-template").html()))
+
+		$('#app').removeClass('hidden')
+		$('#gallery').addClass('hidden')
+		$('#albums').addClass('hidden')
+		@$el.empty()
+		@$el.append(@template($(".index-template").html()))
 		this
 
 	login: (e) ->

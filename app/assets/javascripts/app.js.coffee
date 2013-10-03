@@ -18,8 +18,26 @@ $(document).ready ->
   	if response.status == 'connected'
       FB.api '/me', (response) ->
           app.user = response
+          $('.navbar-text strong').html(response.name+" ")
+          $('.navbar-text').removeClass('hidden')
       app.connected = true
+      Backbone.history.loadUrl(Backbone.history.fragment);
     else
       app.user = null
       app.connected = false
       app.router.navigate '', true
+
+  $('.go-to-albums').click (e) ->
+    e.preventDefault()
+    app.router.navigate('albums', true)
+
+  $('.go-to-home').click (e) ->
+    e.preventDefault()
+    app.router.navigate('', true)
+
+  $('#logout').click (e) ->
+    e.preventDefault()
+    FB.logout (response) ->
+    $('.fbname').empty()
+    $('.navbar-text').addClass('hidden')
+    app.router.navigate '', true

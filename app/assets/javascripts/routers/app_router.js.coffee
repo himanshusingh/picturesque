@@ -8,7 +8,7 @@ app.Routers.App = Backbone.Router.extend
 
 	index: ->
 		view = new app.Views.Index()
-		$('#app').html view.render().el
+		view.render()
 
 	albums: ->
 		if !app.connected

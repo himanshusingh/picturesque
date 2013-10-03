@@ -14,7 +14,7 @@ app.Views.Index = Backbone.View.extend
 		$('#gallery').addClass('hidden')
 		$('#albums').addClass('hidden')
 		@$el.empty()
-		@$el.append(@template($(".index-template").html()))
+		@$el.append(@template())
 		this
 
 	login: (e) ->
@@ -27,5 +27,5 @@ app.Views.Index = Backbone.View.extend
 					app.connected = true
 
 					app.router.navigate 'albums', true
-			scope: 'user_photos'
+			,scope: 'user_photos'
 

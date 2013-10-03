@@ -1,3 +1,42 @@
 // Place all the styles related to the main controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.navbar navbar-default navbar-fixed-top{
+	margin-bottom: 0px;
+}
+
+#app{
+	width: 100%;
+	max-width: 100%;
+	margin: 0;
+	padding: 0;
+}
+.share {
+	height: 160px;
+	color: white;
+	background: rgba(0,0,0,0.6);
+	border-radius: 8px;
+	font-size: 80px;
+	text-align: center;
+	padding-top: 32px;
+	margin: 50px 14% 20px 14%
+}
+.dudes {
+text-align: center;
+}
+.navbar-default{
+	background-color:black;
+	box-shadow: 0 2px 4px black;
+}
+body{
+	padding-top:0px;
+}
+.dudes img{
+	height: 193px;
+	margin-top: 30px;
+}
+.index-template{
+	background-image: url('/road-going-to-himalayas-blurred.jpg');
+	min-height: 900px;
+	padding-top: 50px;
+}

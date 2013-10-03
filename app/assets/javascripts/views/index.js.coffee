@@ -7,7 +7,7 @@ app.Views.Index = Backbone.View.extend
 		'click #fblogin': 'login'
 
 	render: ->
-		@setElement(@template())
+		@setElement(@template($(".index-template").html()))
 		this
 
 	login: (e) ->

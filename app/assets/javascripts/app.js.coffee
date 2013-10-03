@@ -20,6 +20,8 @@ $(document).ready ->
           app.user = response
           $('.navbar-text strong').html(response.name+" ")
           $('.navbar-text').removeClass('hidden')
+          $('#fblogin').addClass('hidden')
+          $('#enter').removeClass('hidden')
       app.connected = true
       Backbone.history.loadUrl(Backbone.history.fragment);
     else

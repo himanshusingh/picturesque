@@ -13,8 +13,6 @@ app.Views.Index = Backbone.View.extend
 		$('#app').removeClass('hidden')
 		$('#gallery').addClass('hidden')
 		$('#albums').addClass('hidden')
-		@$el.empty()
-		@$el.append(@template())
 		this
 
 	login: (e) ->

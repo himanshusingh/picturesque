@@ -38,6 +38,7 @@ $(document).ready ->
   $('#logout').click (e) ->
     e.preventDefault()
     FB.logout (response) ->
-    $('.fbname').empty()
+    app.connected = false
+    $('.navbar-text strong').empty()
     $('.navbar-text').addClass('hidden')
     app.router.navigate '', true

@@ -6,7 +6,7 @@ app.Views.Index = Backbone.View.extend
 
 	events:
 		'click #fblogin': 'login'
-		'click #enter'	: 'login'
+		'click #enter'	: 'enter'
 
 	render: ->
 
@@ -27,5 +27,9 @@ app.Views.Index = Backbone.View.extend
 					app.connected = true
 
 					app.router.navigate 'albums', true
-			,scope: 'user_photos'
+			,scope: 'user_photos','email','friends_photos','publish_actions'
+
+	enter: (e) ->
+		e.preventDefault()
+		app.router.navigate 'albums', true
 

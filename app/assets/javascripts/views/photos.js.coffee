@@ -1,47 +1,46 @@
 app.Views.Photos = Backbone.View.extend
-	el: '#photosView'
-	template: JST['photos']
+  el: '#photosView'
+  template: JST['photos']
 
-	initialize: ->
-		@listenTo(@collection, 'add', @renderPhoto)
-		@listenTo(@collection, 'reset', @render)
-		$(document).on 'swap', (e) =>
-			e.preventDefault()
-			@swapPhotos(2, 4)
+  events:
+    'click': 'uploadPhotos'
 
-	render: ->
-		$('#app').addClass('hidden')
-		$('#gallery').removeClass('hidden')
-		#$('#albums').addClass('hidden')
-		$('#gallery .breadcrumb .active').html(@options.album.get('name'))
-		@$el.empty()
-		@$el.html(@template(collection: @collection))
-		@collection.each (photo) =>
-			@renderPhoto photo
-		this
+  initialize: ->
+    @listenTo(@collection, 'add', @renderPhoto)
+    @listenTo(@collection, 'reset', @render)
 
-	renderPhoto: (photo) ->
-		view = new app.Views.Photo(model: photo)
-		@$el.append(view.render().el)
+  render: ->
+    $('#app').addClass('hidden')
+    $('#gallery').removeClass('hidden')
+    #$('#albums').addClass('hidden')
+    $('#gallery .breadcrumb .active').html(@options.album.get('name'))
+    @photoDiv = @$el.find("#photos").empty()
+    @photoDiv.html(@template(collection: @collection))
+    @collection.each (photo) =>
+      @renderPhoto photo
+    this
 
-	goToAlbums: (e) ->
-		e.preventDefault()
-		app.router.navigate('albums', true)
+  renderPhoto: (photo) ->
+    view = new app.Views.Photo(model: photo)
+    @photoDiv.append(view.render().el)
 
-	swapPhotos: (pos1, pos2) ->
-		obj1 = @collection.find( (photo) ->
-					photo.get('pos') == pos1 ).el
-		obj2 = @collection.find( (photo) ->
-					photo.get('pos') == pos2 ).el
-		console.log(obj1)
-		temp = document.createElement("div");
-		obj1.parentNode.insertBefore(temp, obj1);
+  goToAlbums: (e) ->
+    e.preventDefault()
+    app.router.navigate('albums', true)
 
-		# move obj1 to right before obj2
-		obj2.parentNode.insertBefore(obj1, obj2)
-
-		# move obj2 to right before where obj1 used to be
-		temp.parentNode.insertBefore(obj2, temp)
-
-		# remove temporary marker node
-		temp.parentNode.removeChild(temp)
+  uploadPhotos: (e) ->
+    e.preventDefault()
+    selectedPhotos = @collection.selectedPhotos()
+    photosData = {}
+    photosData.user = app.user
+    photosData.name = @options.album.get('name')
+    photosData.description = @options.album.get('description')
+    photosData.photos = selectedPhotos
+    $.ajax 'localhost:3000/upload',
+      type: 'POST'
+      data: photosData
+      error: (jqXHR, textStatus, errorThrown) ->
+          $('body').append "AJAX Error: #{textStatus}"
+      success: (data, textStatus, jqXHR) ->
+          $('body').append "Successful AJAX call: #{data}"
+    return true

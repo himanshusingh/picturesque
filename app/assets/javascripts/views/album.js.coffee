@@ -14,3 +14,7 @@ app.Views.Album = Backbone.View.extend
 	showAlbumPhotos: (e) ->
 		photosView = new app.Views.Photos(collection: @model.get('photos'), album: @model)
 		photosView.render()
+
+	uploadPhotos: (e) ->
+		photos = @collection.selectedPhotos();
+		console.log(photos);

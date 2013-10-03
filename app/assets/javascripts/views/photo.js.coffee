@@ -2,7 +2,9 @@ app.Views.Photo = Backbone.View.extend
 	template: JST['photo']
 
 	events:
-		'click' : 'enlargeImage'
+		'click' 	: 'enlargeImage'
+		'mouseenter': 'showOverlay'
+		'mouseleave': 'hideOverlay'
 	initialize: ->
 
 	render: ->
@@ -10,3 +12,10 @@ app.Views.Photo = Backbone.View.extend
 		this
 
 	enlargeImage: (e) ->
+
+	showOverlay: (e) ->
+		@$('.caption')
+
+	hideOverlay: (e) ->
+		@$('#photo-div')
+

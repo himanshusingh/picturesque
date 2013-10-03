@@ -22,5 +22,3 @@ app.Collections.Photos = Backbone.Collection.extend
 	sortByPos: () ->
 		@sortBy (model) ->
 			model.get('pos')
-
-	getSelectedData: () ->

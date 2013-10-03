@@ -1,8 +1,5 @@
-<div class="col-sm-8 col-md-3" id="photo-div">
+<div class="col-xs-8 col-sm-6 col-md-4" id="photo-div">
   <div class="thumbnail">
-    <img src='<%=@photo.get("source")%>' alt='<%=@photo.get("name")%>'>
-    <div class="caption">
-      <p><%=@photo.get("name")%></p>
-    </div>
+    <img src='<%=@photo.get("source")%>' class="img-responsive" alt='<%=@photo.get("name")%>'>
   </div>
 </div>

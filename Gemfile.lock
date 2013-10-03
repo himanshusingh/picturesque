@@ -73,9 +73,15 @@ GEM
       ruby-rc4
       ttfunk
     polyglot (0.3.3)
+<<<<<<< HEAD
     prawn (0.12.0)
       pdf-reader (>= 0.9.0)
       ttfunk (~> 1.0.2)
+=======
+    prawn (1.0.0.rc1)
+      pdf-reader (>= 0.9.0)
+      ttfunk (~> 1.0.3)
+>>>>>>> 36e0a984ac3a52d6d3481799f63dad831f1947db
     rack (1.5.2)
     rack-test (0.6.2)
       rack (>= 1.0)
@@ -137,7 +143,11 @@ DEPENDENCIES
   coffee-rails (~> 4.0.0)
   jbuilder (~> 1.2)
   jquery-rails
+<<<<<<< HEAD
   prawn
+=======
+  prawn (= 1.0.0.rc1)
+>>>>>>> 36e0a984ac3a52d6d3481799f63dad831f1947db
   rails (= 4.0.0)
   sass-rails (~> 4.0.0)
   sdoc

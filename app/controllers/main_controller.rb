@@ -1,5 +1,6 @@
-#require 'prawn'
-#require "open-uri"
+require 'prawn'
+require "open-uri"
+require 'rexml/document'
 class MainController < ApplicationController
   def index
   end
@@ -37,8 +38,10 @@ class MainController < ApplicationController
 		end
 
 		#api call for upload
-		`curl --trace-ascii -o/dev/null -F "slideshow_srcfile=@#{options[:filename]}" -F "username=#{options[:username]}" -F "password=#{options[:password]}" -F "slideshow_title=#{options[:title]}" -F "description=#{options[:description]}" -F "api_key=#{options[:api_key]}" -F "hash=#{hash}" -F "make_src_public=N" -F "make_slideshow_private=Y" -F "ts=#{ts}" "https://www.slideshare.net/api/2/upload_slideshow"`
-
+		response = `curl --trace-ascii -o/dev/null -F "slideshow_srcfile=@#{options[:filename]}" -F "username=#{options[:username]}" -F "password=#{options[:password]}" -F "slideshow_title=#{options[:title]}" -F "description=#{options[:description]}" -F "api_key=#{options[:api_key]}" -F "hash=#{hash}" -F "make_src_public=N" -F "make_slideshow_private=Y" -F "ts=#{ts}" "https://www.slideshare.net/api/2/upload_slideshow"`
+		doc = REXML::Document.new(response)
+		slideshowid_array=doc.get_elements('//SlideShowID')
+		render :json => {:slideshow_id => slideshowid_array[0].text}
   end
 
 end

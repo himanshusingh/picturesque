@@ -42,6 +42,13 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.6.3)
+    columnize (0.3.6)
+    debugger (1.6.2)
+      columnize (>= 0.3.1)
+      debugger-linecache (~> 1.2.0)
+      debugger-ruby_core_source (~> 1.2.3)
+    debugger-linecache (1.2.0)
+    debugger-ruby_core_source (1.2.3)
     eco (1.0.0)
       coffee-script
       eco-source
@@ -73,15 +80,9 @@ GEM
       ruby-rc4
       ttfunk
     polyglot (0.3.3)
-<<<<<<< HEAD
-    prawn (0.12.0)
-      pdf-reader (>= 0.9.0)
-      ttfunk (~> 1.0.2)
-=======
     prawn (1.0.0.rc1)
       pdf-reader (>= 0.9.0)
       ttfunk (~> 1.0.3)
->>>>>>> 36e0a984ac3a52d6d3481799f63dad831f1947db
     rack (1.5.2)
     rack-test (0.6.2)
       rack (>= 1.0)
@@ -141,13 +142,10 @@ PLATFORMS
 DEPENDENCIES
   backbone-on-rails
   coffee-rails (~> 4.0.0)
+  debugger
   jbuilder (~> 1.2)
   jquery-rails
-<<<<<<< HEAD
-  prawn
-=======
   prawn (= 1.0.0.rc1)
->>>>>>> 36e0a984ac3a52d6d3481799f63dad831f1947db
   rails (= 4.0.0)
   sass-rails (~> 4.0.0)
   sdoc

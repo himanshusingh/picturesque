@@ -1,6 +1,7 @@
 require 'prawn'
 require "open-uri"
 require 'rexml/document'
+require 'json'
 class MainController < ApplicationController
   def index
   end
@@ -26,8 +27,8 @@ class MainController < ApplicationController
   				fill_color "000000"
   				fill_rectangle([0,75], 720,50)
 				end
-				text_box image_data["caption"], :valign => :center, :align => :center,
- 									:at => [0,75], :width => 720, :height => 50
+				text_box(image_data["caption"], :valign => :center, :align => :center,
+ 									:at => [0,75], :width => 720, :height => 50) if image_data["caption"]
 			end
 		end
 

@@ -32,15 +32,19 @@ app.Views.Photos = Backbone.View.extend
     e.preventDefault()
     selectedPhotos = @collection.selectedPhotos()
     photosData = {}
-    photosData.user = app.user
     photosData.name = @options.album.get('name')
     photosData.description = @options.album.get('description')
-    photosData.photos = selectedPhotos
-    $.ajax 'localhost:3000/upload',
+    photosData.images = []
+    for own key, photo of selectedPhotos
+      console.log(photo)
+      imgData = photo.get('images')[1]
+      caption = photo.get('name')
+      imgData.caption = caption
+      photosData.images.push(imgData)
+    console.log(photosData)
+    $.ajax '/upload',
       type: 'POST'
       data: photosData
-      error: (jqXHR, textStatus, errorThrown) ->
-          $('body').append "AJAX Error: #{textStatus}"
-      success: (data, textStatus, jqXHR) ->
-          $('body').append "Successful AJAX call: #{data}"
+      success: (data) ->
+          console.log(data)
     return true

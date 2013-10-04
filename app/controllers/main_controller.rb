@@ -13,7 +13,7 @@ class MainController < ApplicationController
 		options[:api_key] = 'duJ4P1CJ'
 		options[:username] = 'apoorvik'
 		options[:password] = "gemini86"
-		options[:title] = params[:title] || 'SlideShare HACK Day 2013'
+		options[:title] = params[:name] || 'SlideShare HACK Day 2013'
 		options[:description] = params[:description] || 'Description for SlideShare HACK Day 2013'
 		options[:filename] = "implicit.pdf"
 		ts, hash = 1380734970, 'f6b2fea35eecbe0c8c11091d4f93500720076fff'
@@ -21,14 +21,18 @@ class MainController < ApplicationController
 		# Create a pdf with image data
 		Prawn::Document.generate("implicit.pdf",:skip_page_creation => true) do
 			image_hash.each do |key , image_data|
-				start_new_page(:size => [540,720],:margin => 0, :layout => :landscape,  :fit => [540,720])
-				image open(image_data["source"])
-				transparent(0.4) do 
-  				fill_color "000000"
-  				fill_rectangle([0,75], 720,50)
+				start_new_page(:size => [image_data["height"].to_i,image_data["width"].to_i],:margin => 0, :layout => :landscape)
+				image open(image_data["source"]) , :width => image_data["width"].to_i, :height => image_data["height"].to_i
+				if image_data["caption"]
+					transparent(0.3) do 
+						fill_color "000000"
+						fill_rectangle([0,75], image_data["width"].to_i,50)
+					end
+					fill_color "FFFFFF"
+					font_size 16
+					text_box(image_data["caption"], :valign => :center, :align => :center,
+											:at => [0,75], :width => image_data["width"].to_i, :height => 50) 
 				end
-				text_box(image_data["caption"], :valign => :center, :align => :center,
- 									:at => [0,75], :width => 720, :height => 50) if image_data["caption"]
 			end
 		end
 
@@ -45,4 +49,3 @@ class MainController < ApplicationController
   end
 
 end
-# -F "make_slideshow_private=Y"

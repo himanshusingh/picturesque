@@ -46,6 +46,7 @@ body{
 #albums h2{
 	margin-top: 70px;
 	margin-bottom: 35px;
+	text-align: center;
 }
 #albumsView {
 	height: 200px;
@@ -92,12 +93,11 @@ font-size: 15px;
 overflow: hidden;
 }
 #gallery {
-padding: 20px;
-border: 1px solid black;
-margin-top: 80px;
+padding: 0 20px 20px 20px;
 }
 #photosView {
 padding-left: 40px;
+border: 1px solid rgb(235, 235, 235);
 }
 #photo-div {
 max-width: 300px;
@@ -136,4 +136,19 @@ word-wrap: normal;
 }
 #photosView .icon-edit{
 	cursor: pointer;
+}
+#photosView .icons-right {
+margin-right: 10px;
+cursor: pointer;
+}
+#albums h4, h4.album-title{
+	display: inline;
+	margin-left: 10px;
+	font-size: 20px;
+}
+#albums .icon-lightbulb, .icon-lightbulb{
+	font-size: 20px;
+}
+.container.marker{
+	margin-top: 70px;
 }

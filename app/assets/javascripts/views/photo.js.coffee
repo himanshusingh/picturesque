@@ -4,6 +4,7 @@ app.Views.Photo = Backbone.View.extend
   events:
     'click'   : 'selectImage'
     'click .icon-edit'   : 'editCaption'
+    'blur .caption-edit'  : 'saveCaption'
     'mouseenter': 'showEdit'
     'mouseleave': 'hideEdit'
   initialize: ->
@@ -31,12 +32,33 @@ app.Views.Photo = Backbone.View.extend
 
   editCaption: (e) ->
     e.stopImmediatePropagation()
-    captionBox = @$.find(".caption")
-    captionBox.removeClass("hidden")
-    @$('<input/>').after(captionBox)
+    input = @$el.find(".caption-edit")
+    if input.length > 0
+      input.focus()
+      return
+    captionBox = @$el.find(".photo-comment")
+    captionBox.addClass("hidden")
+    input = $('<input/>').appendTo(@$el.find(".photo-caption"))
       .attr("type","text")
       .addClass("pull-left")
+      .addClass("caption-edit")
       .attr("value", captionBox.text())
       .css("background", "transparent")
       .css("border", "none")
       .css("color", "inherit")
+    @$el.find(".icons-right").removeClass("hidden")
+    input.focus()
+
+  saveCaption: (e) ->
+    e.stopImmediatePropagation()
+    input = @$el.find(".caption-edit")
+    if input.length < 0
+      return
+    captionBox = @$el.find(".photo-comment")
+    newText = input.val()
+    console.log(@model)
+    @model.set({"name": newText})
+    captionBox.text(newText)
+    input.remove()
+    captionBox.removeClass("hidden")
+    @$el.find(".icons-right").addClass("hidden")

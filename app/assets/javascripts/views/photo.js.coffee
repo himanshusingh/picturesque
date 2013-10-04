@@ -8,6 +8,8 @@ app.Views.Photo = Backbone.View.extend
     'mouseenter': 'showEdit'
     'mouseleave': 'hideEdit'
   initialize: ->
+    $(document).on 'selectAll', (e) =>
+      selectImage()
 
   render: ->
     @setElement(@template(photo: @model))

@@ -24,4 +24,5 @@ app.Views.Upload = Backbone.View.extend
 		$('#albums').addClass('hidden')
 		$('#upload-page').removeClass('hidden')
 		@$el.empty()
+		$(".container.marker").addClass("hidden")
 		@$el.html(@template())

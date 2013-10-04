@@ -4,6 +4,7 @@ app.Views.Photos = Backbone.View.extend
 
   events:
     'click .upload-btn': 'uploadPhotos'
+    'click .select-all': 'selectAll'
 
   initialize: ->
     @listenTo(@collection, 'add', @renderPhoto)
@@ -54,3 +55,8 @@ app.Views.Photos = Backbone.View.extend
           $(document).trigger('upload_id', data)
     app.router.navigate 'upload', true
     return true
+
+    selectAll: (e) ->
+      select = @$el.find(".select-all")
+      if select.hasClass("icon-check")
+        $(document).trigger('selectAll')

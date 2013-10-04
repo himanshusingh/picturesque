@@ -1,6 +1,0 @@
-<% console.log(@collection) %>
-<div class="col-xs-8 col-sm-6 col-md-6">
-	<% @collection.each (photo) ->: %>
-	<img src="<%=photo.get('images')[7].source%>">
-	<% end %>
-</div>

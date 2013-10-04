@@ -1,3 +1,4 @@
 <li class="thumbnail col-xs-8 col-sm-6 col-md-3 col-lg-3">
     <img  src='<%=@album.get("cover")%>' class="img-responsive" alt='<%=@album.get("name")%>'>
+    <div class="album-name"><%=@album.get("name")%></div>
 </li>

@@ -8,8 +8,11 @@ app.Views.Upload = Backbone.View.extend
 					@$('.spinner').addClass('hidden')
 					if data.status == true
 						@$('.waiting').addClass('hidden')
-						@$('#slideshow_frame').attr 'src', 'http://www.slideshare.net/slideshow/embed_code/' + data.slideshow_id
-						@$('#slideshow_frame').removeClass('hidden')
+						console.log(data)
+						@$('#slideshow').empty()
+						@$('#slideshow').html ('<iframe src="http://www.slideshare.net/slideshow/embed_code/' + data.slideshow_id + '"' + ' width="638" height="450" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC;border-width:1px 1px 0;margin-bottom:5px" allowfullscreen> </iframe> <div style="margin-bottom:5px">')
+						#@$('#slideshow_frame').attr 'src', 'http://www.slideshare.net/slideshow/embed_code/' + data.slideshow_id
+						#@$('#slideshow_frame').removeClass('hidden')
 						@$('#congo').removeClass('hidden')
 					else
 						@$('.alert').removeClass('hidden')

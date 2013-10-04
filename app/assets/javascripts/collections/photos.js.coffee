@@ -17,6 +17,8 @@ app.Collections.Photos = Backbone.Collection.extend
 
 	selectedPhotos: () ->
 		@filter (model) ->
+			console.log(model)
+			console.log(model.get('selected'))
 			model.get('selected') == true
 
 	sortByPos: () ->

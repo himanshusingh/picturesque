@@ -10,7 +10,7 @@ app.Views.Photo = Backbone.View.extend
   initialize: ->
 
   render: ->
-    @$el.html(@template(photo: @model))
+    @setElement(@template(photo: @model))
     this
 
   selectImage: (e) ->
@@ -19,10 +19,11 @@ app.Views.Photo = Backbone.View.extend
     if check.length > 0
       check.removeClass("icon-check")
       check.addClass("icon-unchecked")
+      @model.set({selected: false})
     else if uncheck.length > 0
       uncheck.removeClass("icon-unchecked")
       uncheck.addClass("icon-check")
-    @model.set({selected: true})
+      @model.set({selected: true})
 
   showEdit: (e) ->
     @$('.icon-edit').removeClass("hidden");

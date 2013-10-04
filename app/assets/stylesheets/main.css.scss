@@ -30,6 +30,7 @@ text-align: center;
 }
 body{
 	padding-top:0px;
+	background-color: #F1F1F1
 }
 .dudes img{
 	height: 193px;
@@ -53,7 +54,8 @@ body{
 	overflow: auto;
 	white-space: nowrap;
 	padding: 21px;
-	border: 1px solid rgb(235, 235, 235);
+	border: 1px solid #CACACA;
+	border-radius: 10px;
 }
 #albumsView .thumbnail{
 	padding: 0px;
@@ -96,8 +98,9 @@ overflow: hidden;
 padding: 0 20px 20px 20px;
 }
 #photosView {
-padding-left: 40px;
-border: 1px solid rgb(235, 235, 235);
+padding: 40px 30px;
+border: 1px solid #CACACA;
+border-radius: 10px;
 }
 #photo-div {
 max-width: 300px;
@@ -123,12 +126,16 @@ word-wrap: normal;
 }
 .upload-btn{
 	clear: both;
+	width: 200px;
 }
 #albumsView .icon-unchecked, #albumsView .icon-check{
 	margin-top: 3px;
 }
 #photosView .icon-unchecked, #albumsView .icon-check, #photosView .icon-edit{
 	margin-top: 3px;
+}
+#photosView .icon-edit:hover{
+	color: rgb(66, 119, 168);
 }
 #photosView .icons{
 	width: 40px;
@@ -141,7 +148,10 @@ word-wrap: normal;
 margin-right: 10px;
 cursor: pointer;
 }
-#albums h4, h4.album-title{
+#photosView #photos{
+	float: left;
+}
+#albums h4, div.album-title h4{
 	display: inline;
 	margin-left: 10px;
 	font-size: 20px;

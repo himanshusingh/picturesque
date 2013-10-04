@@ -13,6 +13,7 @@ app.Views.Index = Backbone.View.extend
 		$('#app').removeClass('hidden')
 		$('#gallery').addClass('hidden')
 		$('#albums').addClass('hidden')
+		$('#upload-page').addClass('hidden')
 		this
 
 	login: (e) ->

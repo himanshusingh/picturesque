@@ -3,6 +3,7 @@ app.Routers.App = Backbone.Router.extend
 		''			: 'index'
 		'albums'	: 'albums'
 		'album/:id'	: 'showAlbum'
+		'upload'	: 'upload'
 
 	initialize: ->
 
@@ -24,4 +25,11 @@ app.Routers.App = Backbone.Router.extend
 			view = new app.Views.Photos
 								collection: app.albums.get(id).get('photos')
 								album: app.albums.get(id)
+			view.render()
+
+	upload: () ->
+		if !app.connected
+			@navigate('', true)
+		else
+			view = new app.Views.Upload()
 			view.render()

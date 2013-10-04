@@ -23,3 +23,13 @@
 body {
 	padding-top: 80px;
 }
+
+.final-page {
+	text-align: center;
+}
+
+.final-page .spinner {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}

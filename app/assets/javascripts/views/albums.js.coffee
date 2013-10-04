@@ -19,9 +19,10 @@ app.Views.Albums = Backbone.View.extend
 		$('#gallery').addClass('hidden')
 		$('#albums').removeClass('hidden')
 		$('#albumsView').selectable();
+		$('#upload-page').addClass('hidden')
 
 		@$el.empty()
-		@$el.html(@template())
+		@$el.html(@template(albums: @collection))
 
 		@collection.each (album) =>
 			@renderAlbum album

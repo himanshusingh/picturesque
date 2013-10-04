@@ -1,0 +1,15 @@
+<span class="final-page">
+<h4 class="waiting"> Congratulations! We are in the process of generating a presention from your album and uploading it on slideshare.</h4>
+<h5 class="waiting">This may take a while. Please do not press back button or refresh the page.</h5>
+<h4 class="hidden" id="congo">Congratulations! your album was successfully uploaded on SlideShare</h4>
+<h5><img src="/spinner.gif" class="spinner"></h5>
+<h5 class="hidden alert alert-error fade in">Sorry your upload to SlideShare failed</h5>
+<div class="row">
+	<div class="col-md-offset-3 col-md-6 col-sm-12 col-sm-offset-0">
+		<div id="slideshow">
+			<iframe id="slideshow_frame" class="hidden" src="http://www.slideshare.net/slideshow/embed_code/26850427?rel=0" width="427" height="356" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC;border-width:1px 1px 0;margin-bottom:5px" allowfullscreen> </iframe> <div style="margin-bottom:5px">
+		</div>
+		<a href="#" id="refresh" class="hidden" data-toggle="tooltip" title="Slideshow not showing? Hit refresh"><button type="button" class="btn btn-info">Refresh</button></a>
+	<div>
+</div>
+</span>

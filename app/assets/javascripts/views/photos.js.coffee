@@ -12,6 +12,7 @@ app.Views.Photos = Backbone.View.extend
   render: ->
     $('#app').addClass('hidden')
     $('#gallery').removeClass('hidden')
+    $('#upload-page').addClass('hidden')
     #$('#albums').addClass('hidden')
     albumName = @options.album.get('name')
     $('#gallery .breadcrumb .active').html(albumName)
@@ -50,4 +51,6 @@ app.Views.Photos = Backbone.View.extend
       data: photosData
       success: (data) ->
           console.log(data)
+          $(document).trigger('upload_id', data)
+    app.router.navigate 'upload', true
     return true

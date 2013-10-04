@@ -12,7 +12,7 @@ app.Collections.Photos = Backbone.Collection.extend
 				for info in response.data
 					++counter
 					info.pos = counter
-					info.selected = true
+					info.selected = false
 					@add new app.Models.Photo info
 
 	selectedPhotos: () ->

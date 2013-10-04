@@ -2,7 +2,7 @@
     <img src='<%=@photo.get('images')[1].source %>' class="img-responsive" alt='<%=@photo.get("name")%>'>
     <div class="photo-caption">
     <div class="icons pull-left">
-      <span class="icon-check"></span>
+      <span class="icon-unchecked"></span>
       <span class="icon-edit hidden"></span>
     </div>
     <div class="icons-right pull-right hidden"><span class="icon-save"></span></div>

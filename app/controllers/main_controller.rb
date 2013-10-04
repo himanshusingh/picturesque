@@ -37,7 +37,11 @@ class MainController < ApplicationController
 		doc = REXML::Document.new(response)
 		slideshowid_array=doc.get_elements('//SlideShowID')
 		puts slideshowid_array
-		render :json => {:slideshow_id => slideshowid_array[0].text}
+		if slideshowid_array.length == 0
+			render :json => {:status => false}
+		else
+			render :json => {:slideshow_id => slideshowid_array[0].text, :status => true}
+		end
   end
 
 end

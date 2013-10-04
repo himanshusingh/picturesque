@@ -3,7 +3,7 @@ app.Views.Photos = Backbone.View.extend
   template: JST['photos']
 
   events:
-    'click': 'uploadPhotos'
+    'click .upload-btn': 'uploadPhotos'
 
   initialize: ->
     @listenTo(@collection, 'add', @renderPhoto)

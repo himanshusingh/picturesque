@@ -1,21 +1,42 @@
 app.Views.Photo = Backbone.View.extend
-	template: JST['photo']
+  template: JST['photo']
 
-	events:
-		'click' 	: 'enlargeImage'
-		'mouseenter': 'showOverlay'
-		'mouseleave': 'hideOverlay'
-	initialize: ->
+  events:
+    'click'   : 'selectImage'
+    'click .icon-edit'   : 'editCaption'
+    'mouseenter': 'showEdit'
+    'mouseleave': 'hideEdit'
+  initialize: ->
 
-	render: ->
-		@$el.html(@template(photo: @model))
-		this
+  render: ->
+    @$el.html(@template(photo: @model))
+    this
 
-	enlargeImage: (e) ->
+  selectImage: (e) ->
+    check = @$el.find("span.icon-check")
+    uncheck = @$el.find("span.icon-unchecked")
+    if check.length > 0
+      check.removeClass("icon-check")
+      check.addClass("icon-unchecked")
+    else if uncheck.length > 0
+      uncheck.removeClass("icon-unchecked")
+      uncheck.addClass("icon-check")
+    @model.set({selected: true})
 
-	showOverlay: (e) ->
-		@$('.caption')
+  showEdit: (e) ->
+    @$('.icon-edit').removeClass("hidden");
 
-	hideOverlay: (e) ->
-		@$('#photo-div')
+  hideEdit: (e) ->
+    @$('.icon-edit').addClass("hidden");
 
+  editCaption: (e) ->
+    e.stopImmediatePropagation()
+    captionBox = @$.find(".caption")
+    captionBox.removeClass("hidden")
+    @$('<input/>').after(captionBox)
+      .attr("type","text")
+      .addClass("pull-left")
+      .attr("value", captionBox.text())
+      .css("background", "transparent")
+      .css("border", "none")
+      .css("color", "inherit")

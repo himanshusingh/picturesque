@@ -81,7 +81,7 @@ margin: 0px;
 }
 #albumsView .album-name {
 position: absolute;
-top: 101px;
+bottom: 0px;
 padding: 5px;
 color: white;
 width: 100%;
@@ -109,7 +109,7 @@ box-shadow: 5px 5px 14px black;
 }
 #photosView .photo-caption {
 position: absolute;
-top: 181px;
+bottom: 0px;
 padding: 5px;
 color: white;
 width: 100%;
@@ -123,4 +123,17 @@ word-wrap: normal;
 }
 .upload-btn{
 	clear: both;
+}
+#albumsView .icon-unchecked, #albumsView .icon-check{
+	margin-top: 3px;
+}
+#photosView .icon-unchecked, #albumsView .icon-check, #photosView .icon-edit{
+	margin-top: 3px;
+}
+#photosView .icons{
+	width: 40px;
+	text-align:left;
+}
+#photosView .icon-edit{
+	cursor: pointer;
 }

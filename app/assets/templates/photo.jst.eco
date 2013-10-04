@@ -1,6 +1,10 @@
 <div class="thumbnail col-xs-8 col-sm-6 col-md-4" id="photo-div">
     <img src='<%=@photo.get('images')[1].source %>' class="img-responsive" alt='<%=@photo.get("name")%>'>
-    <% if @photo.get("name"):  %>
-      <div class="photo-caption"><%=@photo.get("name")%></div> 
-    <% end %>
+    <div class="photo-caption">
+    <div class="icons pull-left">
+      <span class="icon-unchecked"></span>
+      <span class="icon-edit hidden"></span>
+      </div>
+      <span class="caption pull-left"><%=@photo.get("name")%></span>
+    </div> 
 </div>

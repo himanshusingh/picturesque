@@ -12,6 +12,13 @@ app.Views.Album = Backbone.View.extend
 		this
 
 	showAlbumPhotos: (e) ->
+		console.log(@$el.find("span.icon-unchecked"))
+		$("#albumsView .icon-check")
+			.removeClass("icon-check")
+			.addClass("icon-unchecked")
+		@$el.find("span.icon-unchecked")
+			.removeClass("icon-unchecked")
+			.addClass("icon-check")
 		photosView = new app.Views.Photos(collection: @model.get('photos'), album: @model)
 		photosView.render()
 

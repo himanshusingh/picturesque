@@ -2,7 +2,7 @@
 <h4 class="waiting"> Congratulations! We are in the process of generating a presention from your album and uploading it on slideshare.</h4>
 <h5 class="waiting">This may take a while. Please do not press back button or refresh the page.</h5>
 <h4 class="hidden" id="congo">Congratulations! your album was successfully uploaded on SlideShare</h4>
-<h5><img src="/spinner.gif" class="spinner"></h5>
+<h5></h5>
 <h5 class="hidden alert alert-error fade in">Sorry your upload to SlideShare failed</h5>
 
 

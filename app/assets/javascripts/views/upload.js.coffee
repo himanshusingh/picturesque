@@ -3,9 +3,14 @@ app.Views.Upload = Backbone.View.extend
 	template: JST['upload']
 	initialize: ->
 		$(document).on 'upload_id', (e, data) =>
-			setTimeout \
+      counter = 0
+			t = setInterval \
 				() =>
 					@$('.spinner').addClass('hidden')
+          if !data
+            $('.fallback-url').html("www.slideshare.net/slideshow/embed_code/" + data.slideshow_id)
+            @$('.alert.upload-waiting').removeClass('hidden')
+            return
 					if data.status == true
 						@$('.waiting').addClass('hidden')
 						console.log(data)
@@ -14,8 +19,9 @@ app.Views.Upload = Backbone.View.extend
 						#@$('#slideshow_frame').attr 'src', 'http://www.slideshare.net/slideshow/embed_code/' + data.slideshow_id
 						#@$('#slideshow_frame').removeClass('hidden')
 						@$('#congo').removeClass('hidden')
+            cleartInterval(t)
 					else
-						@$('.alert').removeClass('hidden')
+						@$('.alert.upload-fail').removeClass('hidden')
 
 				, 8000
 		@$('#refresh').click () =>

@@ -11,8 +11,8 @@ class MainController < ApplicationController
   	#For upload , we need these values
 		options = {}
 		options[:api_key] = 'duJ4P1CJ'
-		options[:username] = 'apoorvik'
-		options[:password] = "gemini86"
+		options[:username] = 'picturesque_albums'
+		options[:password] = "sshackday"
 		options[:title] = params[:name] || 'SlideShare HACK Day 2013'
 		options[:description] = params[:description] || 'Description for SlideShare HACK Day 2013'
 		options[:filename] = "implicit.pdf"

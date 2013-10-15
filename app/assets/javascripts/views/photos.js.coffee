@@ -5,6 +5,7 @@ app.Views.Photos = Backbone.View.extend
   events:
     'click .upload-btn': 'uploadPhotos'
     'click .select-all': 'selectAll'
+    'click .ss-login-btn': 'showModal'
 
   initialize: ->
     @listenTo(@collection, 'add', @renderPhoto)
@@ -29,14 +30,26 @@ app.Views.Photos = Backbone.View.extend
     view = new app.Views.Photo(model: photo)
     @photoDiv.append(view.render().el)
 
+  showModal: (e) ->
+    e.preventDefault()
+    $(".modal").modal()
+
   goToAlbums: (e) ->
     e.preventDefault()
     app.router.navigate('albums', true)
 
   uploadPhotos: (e) ->
     e.preventDefault()
+    password = $("#inputPassword1").val()
+    login = $("#inputEmail1").val()
+    if(password == "" || login == "")
+      alert('Please enter your SlideShare login and password')
+      return
+    $(".modal").modal('hide')
     selectedPhotos = @collection.selectedPhotos()
     photosData = {}
+    photosData.login = login
+    photosData.password = password
     photosData.name = @options.album.get('name')
     photosData.description = @options.album.get('description')
     photosData.images = []

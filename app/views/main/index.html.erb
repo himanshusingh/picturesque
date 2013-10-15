@@ -122,10 +122,39 @@
 	<div id="photosView">
     <div id="photos">
     </div>
-    <button type="button" class="upload-btn btn btn-primary">Upload to SlideShare</button>
+    <button type="button" class="ss-login-btn btn btn-primary">Proceed</button>
+    <div class="modal fade">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title">Login to SlideShare</h4>
+      </div>
+      <div class="modal-body">
+        <form class="form-horizontal" role="form">
+  <div class="form-group">
+    <label for="inputEmail1" class="col-lg-2 control-label">Login</label>
+    <div class="col-lg-10">
+      <input type="email" class="form-control" id="inputEmail1" placeholder="Login">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="inputPassword1" class="col-lg-2 control-label">Password</label>
+    <div class="col-lg-10">
+      <input type="password" class="form-control" id="inputPassword1" placeholder="Password">
+    </div>
+  </div>
+</form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary upload-btn">Upload to SlideShare</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
 	</div>
 </div>
-
 <div class="container hidden" id="upload-page" style="padding-top:80px">
 </div>
 
